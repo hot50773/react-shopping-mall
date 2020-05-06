@@ -1,10 +1,10 @@
 import React from 'react'
-import { Button } from 'reactstrap'
+import MyHeader from './MyHeader'
 
 function App () {
   return (
     <div>
-      <Button>click me!</Button>
+      <MyHeader />
     </div>
   )
 }
