@@ -1,0 +1,31 @@
+.product-card {
+  display: block;
+  width: 100%;
+}
+
+.product-card .product-card__img-wrapper {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.product-card__img-wrapper::before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-top: 125%;
+}
+
+.product-card__img-wrapper .product-card__img {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.product-card__name, .product-card__price {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
