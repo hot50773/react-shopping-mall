@@ -9,15 +9,19 @@ app.get('/test', (req, res) => {
 })
 
 app.get('/list/:tag', (req, res) => {
-  const tag = req.params.tag
+  const tag = req.params.tag.toLowerCase()
 
-  if (['women', 'men'].indexOf(tag) < 0) res.status(404).send('404: resource not found!')
+  if (['women', 'men', 'all'].indexOf(tag) < 0) res.status(404).send('404: resource not found!')
 
-  const list = productsData.filter(item => {
-    return item.tags.some(t => t === tag)
-  })
+  if (tag === 'all') {
+    res.json(productsData)
+  } else {
+    const list = productsData.filter(item => {
+      return item.tags.some(t => t === tag)
+    })
 
-  res.json(list)
+    res.json(list)
+  }
 })
 
 app.get('/product/:id', (req, res) => {
