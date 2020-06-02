@@ -1,7 +1,15 @@
 import React from 'react'
 import MyHeader from './MyHeader'
-import MyBody from './MyBody'
-import ProductDetails from './components/ProductDetails'
+// import ProductList from './components/ProductListFunc'
+import ProductListWrapper from './components/ProductListWrapper'
+// import ProductDetails from './components/ProductDetails'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+  useParams
+} from 'react-router-dom'
 
 function App () {
   const data = {
@@ -16,11 +24,32 @@ function App () {
   }
   return (
     <div>
-      <MyHeader />
-      <ProductDetails name={data.name} imgSrc={data.imgSrc} price={data.price} storage={data.storage} />
-      {/* <MyBody /> */}
+      {/* Router */}
+      <Router basename='/'>
+        <MyHeader />
+
+        <Switch>
+          <Route path='/detail/:id'>
+            <PrintId />
+            {/* <ProductDetails name={data.name} imgSrc={data.imgSrc} price={data.price} storage={data.storage} /> */}
+          </Route>
+
+          <Route path='/' exact>
+            <Redirect to='/list/all' />
+          </Route>
+
+          <Route path='/list/:name' component={ProductListWrapper} />
+        </Switch>
+      </Router>
     </div>
   )
+}
+
+// TEST
+function PrintId () {
+  const { id } = useParams()
+  console.log('print id')
+  return (<div>Product id: {id}</div>)
 }
 
 export default App

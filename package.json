@@ -9,10 +9,13 @@
     "bootstrap": "^4.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "reactstrap": "^8.4.1"
   },
+  "proxy": "http://localhost:5100",
   "scripts": {
+    "server": "pm2 restart backend-api/express.js --watch",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
