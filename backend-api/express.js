@@ -27,7 +27,7 @@ app.get('/list/:tag', (req, res) => {
 app.get('/product/:id', (req, res) => {
   const id = req.params.id
 
-  const product = productsData.filter(item => item.id === id)
+  const product = productsData.filter(item => item.id === id)[0]
 
   if (product === undefined || product === null || Object.keys(product).length === 0 || product.length === 0) {
     res.status(404).send(`Product of id "${id}" doesn't exist. Please recheck it!`) // status code reference: https://noob.tw/restful-api/
