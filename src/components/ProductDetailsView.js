@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Row, Col, Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap'
 
 // TODO: Router https://pjchender.blogspot.com/2018/11/react-react-router-dynamic-breadcrumb.html
-class ProductDetails extends React.Component {
+class ProductDetailsView extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
@@ -13,6 +13,7 @@ class ProductDetails extends React.Component {
       console.log(`storageNumber of size ${size} is 0`)
       return
     }
+
     // TODO:Typechecking With PropTypes -> https://zh-hant.reactjs.org/docs/typechecking-with-proptypes.html
 
     // 語法檢查: storageNum
@@ -52,7 +53,7 @@ class ProductDetails extends React.Component {
         <Row>
           <Col sm='0' md='1' />
           <Col sm='6' md='4'>
-            <img src={this.props.imgSrc} alt={this.props.name} className='w-100' />
+            <img src={this.props.imgSrc} alt={this.props.name} className='w-100 mb-5' />
           </Col>
           <Col sm='6' md='6'>
             <h3>{this.props.name}</h3>
@@ -91,4 +92,4 @@ class ProductDetails extends React.Component {
   }
 }
 
-export default ProductDetails
+export default ProductDetailsView
