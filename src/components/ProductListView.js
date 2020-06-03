@@ -18,7 +18,8 @@ class ProductListView extends React.Component {
                     imgSrc={product.imgSrc}
                     name={product.name}
                     id={product.id}
-                    price={product.price} />
+                    price={product.price}
+                  />
                 </Col>
               )
             })
