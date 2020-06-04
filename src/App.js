@@ -1,7 +1,7 @@
 import React from 'react'
 import MyHeader from './MyHeader'
-// import ProductList from './components/ProductListFunc'
-import ProductListWrapper from './components/ProductListWrapper'
+import ProductListWrapper from './components/ProductListWrapperFunc'
+// import ProductListWrapper from './components/ProductListWrapper'
 import ProductDetailsWrapper from './components/ProductDetailsWrapper'
 import {
   BrowserRouter as Router,
