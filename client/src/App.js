@@ -1,3 +1,4 @@
+// https://coolors.co/0b132b-84dcc6-1c2541-ff6b6b-ffa69e
 import React from 'react'
 import MyHeader from './MyHeader'
 import ProductListWrapper from './components/ProductListWrapperFunc'
@@ -18,8 +19,8 @@ function App () {
         <MyHeader />
 
         <Switch>
-          <Route path='/detail/:id'>
-            <ProductDetailsWrapper />
+          <Route path='/detail/:id' component={ProductDetailsWrapper}>
+            {/* <ProductDetailsWrapper /> */}
           </Route>
 
           <Route path='/list/:name' component={ProductListWrapper} />

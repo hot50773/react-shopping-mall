@@ -18,14 +18,14 @@ function ProductListWrapper () {
       getCategoryName(name)
 
       // 3. fetch product list and update state (must bind with state 'category' or it will cause error)
-      window.fetch(`/list/${name}`)
+      window.fetch(`/api/list/${name}`)
         .then(res => res.json())
         .then(data => updateProducts(data))
         .catch(err => console.log(err))
 
       // Async/Await 寫法
       // async function fetchData () {
-      //   const res = await window.fetch(`/list/${category}`)
+      //   const res = await window.fetch(`/api/list/${category}`)
 
       //   res.json()
       //     .then(data => updateProducts(data))

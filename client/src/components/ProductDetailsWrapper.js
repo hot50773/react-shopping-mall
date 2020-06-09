@@ -13,7 +13,7 @@ class ProductDetailsWrapper extends React.Component {
     if (this.props.match.params.name !== this.state.id) {
       const id = this._synchronizeIDFromURL() // 1. get url params
 
-      this._loadAsyncData({ url: `/product/${id}` })
+      this._loadAsyncData({ url: `/api/product/${id}` })
     }
   }
 
@@ -21,7 +21,7 @@ class ProductDetailsWrapper extends React.Component {
     if (this.props.match.params.id !== this.state.id) {
       const id = this._synchronizeIDFromURL() // 1. get url params
 
-      this._loadAsyncData({ url: `/product/${id}` })
+      this._loadAsyncData({ url: `/api/product/${id}` })
     }
   }
 

@@ -24,7 +24,7 @@ const MyHeader = (props) => {
     <div>
       <Navbar color='light' light expand='md'>
         <NavbarBrand tag='span'>
-          <Link to='/'>優衣褲</Link>
+          <Link to='/'>Life Wear</Link>
         </NavbarBrand>
 
         <NavbarToggler onClick={toggle} />
@@ -41,41 +41,16 @@ const MyHeader = (props) => {
                 <Link to='/list/men'>男裝</Link>
               </NavLink>
             </NavItem>
-
-            {/* <NavItem>
-              <NavLink><Link to='/list/men'>男裝</Link></NavLink>
-            </NavItem> */}
-
-            <NavItem>
-              <NavLink href='https://github.com/reactstrap/reactstrap'>GitHub</NavLink>
-            </NavItem>
-
-            <UncontrolledDropdown nav inNavbar>
-
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-
-              <DropdownMenu right>
-                <DropdownItem>
-                  Option 1
-                </DropdownItem>
-
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
-
-                <DropdownItem divider />
-
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-
-            </UncontrolledDropdown>
           </Nav>
 
-          <NavbarText>Simple Text</NavbarText>
+          <Nav navbar>
+            <NavItem>
+              <NavLink tag='span'>
+                <Link to='#'>登入</Link>
+              </NavLink>
+            </NavItem>
+          </Nav>
+
         </Collapse>
       </Navbar>
     </div>

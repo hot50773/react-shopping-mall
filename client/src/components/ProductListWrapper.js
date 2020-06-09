@@ -13,7 +13,7 @@ class ProductList extends React.Component {
     if (this.props.match.params.name !== this.state.categoryName) {
       const name = this._setupCategoryNameFromURL() // 1. get url params
 
-      this._loadAsyncData({ url: `/list/${name}` }) // 2. fetch data and update state
+      this._loadAsyncData({ url: `/api/list/${name}` }) // 2. fetch data and update state
     }
   }
 
@@ -21,7 +21,7 @@ class ProductList extends React.Component {
     if (this.props.match.params.name !== this.state.categoryName) {
       const name = this._setupCategoryNameFromURL() // 1. get url params
 
-      this._loadAsyncData({ url: `/list/${name}` }) // 2. fetch data and update state
+      this._loadAsyncData({ url: `/api/list/${name}` }) // 2. fetch data and update state
     }
   }
 
