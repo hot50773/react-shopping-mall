@@ -116,7 +116,7 @@ dist
 .pnp.*
 
 # react production
-/build
+client/build/
 
 # my custom
 *.backup.js
