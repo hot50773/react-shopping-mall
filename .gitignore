@@ -115,5 +115,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# react production
+/build
+
 # my custom
 *.backup.js
+
