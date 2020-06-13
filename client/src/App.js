@@ -5,7 +5,8 @@ import ProductListWrapper from './components/ProductListWrapperFunc'
 // import ProductListWrapper from './components/ProductListWrapper'
 import ProductDetailsWrapper from './components/ProductDetailsWrapper'
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Redirect
