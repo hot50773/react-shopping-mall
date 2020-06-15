@@ -1,0 +1,36 @@
+// Custom Bootstrap Variables
+$primary: #b88963;
+$secondary: #2F3C2A;
+$dark: #0C0F0B;
+$body-bg: #fff;
+$body-color: #181E15;
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { letter-spacing: 0.05em; }
+
+// NavBar
+.navbar-brand {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+}
+
+.navbar-dark a {
+  &, &:hover, &:focus, &:active { color: #fff; }
+}
+
+.navbar-light a {
+  &, &:hover, &:focus, &:active { color: $dark; }
+}
+
+.m-font-size-1 { font-size: 1.2rem; }
+.m-font-size-2 { font-size: 1.44rem; }
+
