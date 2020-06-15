@@ -7,12 +7,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
+  NavLink
 } from 'reactstrap'
 
 const MyHeader = (props) => {
@@ -22,7 +17,9 @@ const MyHeader = (props) => {
 
   return (
     <div>
-      <Navbar color='light' light expand='md'>
+      {/* <Navbar color='dark' dark expand='md'> */}
+      {/* <Navbar color='light' light expand='md'> */}
+      <Navbar color='secondary' dark fixed='top' expand='md'>
         <NavbarBrand tag='span'>
           <Link to='/'>Life Wear</Link>
         </NavbarBrand>

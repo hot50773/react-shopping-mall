@@ -1,9 +1,13 @@
 // Custom Bootstrap Variables
+// https://coolors.co/b88963-404615-1d1f09-1e2817-1e3124
 $primary: #b88963;
-$secondary: #2F3C2A;
-$dark: #0C0F0B;
+// $secondary: #2F3C2A;
+// $secondary:	#1E3124;
+$secondary:	#2E3124;
+$dark:	#1b241e;
+// $dark: #1f211e;
 $body-bg: #fff;
-$body-color: #181E15;
+$body-color: #1b241e;
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
@@ -14,9 +18,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-* { letter-spacing: 0.05em; }
+* { letter-spacing: 0.03em; }
 
-// NavBar
+// NAVBAR
+
 .navbar-brand {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 500;
@@ -31,6 +36,11 @@ body {
   &, &:hover, &:focus, &:active { color: $dark; }
 }
 
-.m-font-size-1 { font-size: 1.2rem; }
-.m-font-size-2 { font-size: 1.44rem; }
+// UTILITIES
 
+.m-font-size-1 { font-size: 1.1rem; }
+.m-font-size-2 { font-size: 1.2rem; }
+.m-font-size-3 { font-size: 1.3rem; }
+.m-font-size-4 { font-size: 1.4rem; }
+
+.m-font-family-number { font-family: Roboto; }

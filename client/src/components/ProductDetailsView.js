@@ -58,7 +58,7 @@ class ProductDetailsView extends React.Component {
           <Col sm='6' md='6'>
             <h3>{this.props.name}</h3>
             <br />
-            <h3 className='text-danger'>{this.props.price}</h3>
+            <h3 className='text-primary m-font-family-number font-weight-bold'>{this.props.price}</h3>
             <br />
             <Form>
               <FormGroup>

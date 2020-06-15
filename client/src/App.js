@@ -5,8 +5,8 @@ import ProductListWrapper from './components/ProductListWrapperFunc'
 // import ProductListWrapper from './components/ProductListWrapper'
 import ProductDetailsWrapper from './components/ProductDetailsWrapper'
 import {
-  // BrowserRouter as Router,
-  HashRouter as Router,
+  BrowserRouter as Router,
+  // HashRouter as Router,
   Switch,
   Route,
   Redirect
@@ -18,18 +18,20 @@ function App () {
       {/* Router */}
       <Router basename='/'>
         <MyHeader />
+        {/* <ShoppingCardPanel /> */}
+        <article className='py-5'>
+          <Switch>
+            <Route path='/detail/:id' component={ProductDetailsWrapper}>
+              {/* <ProductDetailsWrapper /> */}
+            </Route>
 
-        <Switch>
-          <Route path='/detail/:id' component={ProductDetailsWrapper}>
-            {/* <ProductDetailsWrapper /> */}
-          </Route>
+            <Route path='/list/:name' component={ProductListWrapper} />
 
-          <Route path='/list/:name' component={ProductListWrapper} />
-
-          <Route path='/' exact>
-            <Redirect to='/list/all' />
-          </Route>
-        </Switch>
+            <Route path='/' exact>
+              <Redirect to='/list/all' />
+            </Route>
+          </Switch>
+        </article>
       </Router>
     </div>
   )
