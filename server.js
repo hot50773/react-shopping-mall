@@ -1,37 +1,24 @@
-// require('@google-cloud/debug-agent').start()
-
-const express = require('express')
-const path = require('path')
-// const { ErrorReporting } = require('@google-cloud/error-reporting')
-
-// Using ES6 style imports via TypeScript or Babel
-// import {ErrorReporting} from '@google-cloud/error-reporting';
-
-// Instantiates a client
-// const errors = new ErrorReporting()
-const app = express()
-
-// const ENV = process.env.NODE_ENV || 'development'
-// process.env.NODE_ENV = 'production'
-// const IS_PROD = (process.env.NODE_ENV === 'production')
-
-// if (IS_PROD) {
-  app.use(express.static(path.join(__dirname, './client/build')))
-// }
-
-// const port = process.env.PORT
-// const port = IS_PROD ? process.env.PORT : 5100
-// production
-const port = 5100
-
-// development
-// const port = 5100
+require('@google-cloud/debug-agent').start()
+const { ErrorReporting } = require('@google-cloud/error-reporting') // GCP error reporting
+const errors = new ErrorReporting()
 
 const productsData = require('./backend-api/products-data')
 
-app.get('/api/test', (req, res) => {
-  res.json({ num1: '1', num2: 2, num3: 4 })
-})
+const express = require('express')
+const path = require('path')
+const app = express()
+
+// const production = 'production'
+const development = 'development'
+
+const ENV = process.env.NODE_ENV || development // 未來要改成更安全的寫法
+const PORT = process.env.PORT || 5100
+const IS_DEV = (ENV === development)
+const BUILD_PATH = './client/build'
+
+if (!IS_DEV) {
+  app.use(express.static(path.join(__dirname, BUILD_PATH)))
+}
 
 app.get('/api/list/:tag', (req, res) => {
   const tag = req.params.tag.toLowerCase()
@@ -61,28 +48,24 @@ app.get('/api/product/:id', (req, res) => {
   res.json(product)
 })
 
-// setting root html of react for deployment
+// setting root html of React
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'))
+  res.sendFile(path.join(__dirname, BUILD_PATH, 'index.html'))
 })
 
 app.use((req, res, next) => {
-  const error = new Error('Not Found')
-  error.status = 404
-  next(error)
+  res.status(404).send('Sorry cant find that!')
 })
 
-app.use((req, res, next, error) => {
-  res.status(error.status || 500)
-  res.send(error)
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
 })
 
-// / Note that express error handling middleware should be attached after all
-// the other routes and use() calls. --- from GCP
-// app.use(errors.express)
+// GCP error handling
+// Note that express error handling middleware should be attached after all the other routes and use() calls.
+app.use(errors.express)
 
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`)
 })
-
-// --- backend:END
