@@ -243,6 +243,7 @@ const products = [
     ]
   },
   {
+    id: '020004',
     name: '格紋休閒襯衫（藍黃） - 男',
     imgSrc: 'https://images.unsplash.com/photo-1557153939-92dd234d7bd0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     price: '$499',
@@ -261,7 +262,7 @@ const products = [
     ]
   },
   {
-    id: '020004',
+    id: '020005',
     name: '率性西裝外套 - 男',
     imgSrc: 'https://images.unsplash.com/photo-1581382575275-97901c2635b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
     price: '$1599',
