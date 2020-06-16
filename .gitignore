@@ -117,5 +117,6 @@ dist
 
 # my custom
 *.backup.js
+*.backup.scss
 client/build
 

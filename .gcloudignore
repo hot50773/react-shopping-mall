@@ -18,3 +18,4 @@ node_modules/
 
 # my custom
 *.backup.js
+*.backup.scss
