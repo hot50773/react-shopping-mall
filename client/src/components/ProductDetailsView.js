@@ -1,11 +1,50 @@
 import React from 'react'
 import { Container, Row, Col, Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap'
 
-// TODO: Router https://pjchender.blogspot.com/2018/11/react-react-router-dynamic-breadcrumb.html
+// TODO: BreadCrumb - https://pjchender.blogspot.com/2018/11/react-react-router-dynamic-breadcrumb.html
 class ProductDetailsView extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {}
+    this.state = {
+      size: '',
+      amount: 1
+    }
+
+    this.handleSizeChange = this.handleSizeChange.bind(this)
+    this.handleAmountChange = this.handleAmountChange.bind(this)
+    this.handleBuyClick = this.handleBuyClick.bind(this)
+  }
+
+  handleSizeChange (e) {
+    // https://zh-hant.reactjs.org/docs/forms.html
+    if (e.target.value) this.setState({ size: e.target.value })
+  }
+
+  handleAmountChange (e) {
+    if (e.target.value) this.setState({ amount: e.target.value })
+  }
+
+  handleBuyClick (e) {
+    if (this.state.size === '') {
+      window.alert('請選擇尺寸')
+      return
+    }
+
+    if (this.state.amount === 0) {
+      window.alert('請選擇數量')
+      return
+    }
+
+    this.props.addToCartData({
+      id: this.props.id,
+      name: this.props.name,
+      imgSrc: this.props.imgSrc,
+      price: this.props.price,
+      size: this.state.size,
+      amount: this.state.amount
+    })
+
+    window.alert(`商品已成功加入購物車!!\n\n名稱：${this.props.name}\n尺寸：${this.state.size}\n數量：${this.state.amount}`)
   }
 
   renderSizeOption ({ size = '', storageNum } = {}) {
@@ -30,7 +69,7 @@ class ProductDetailsView extends React.Component {
 
     if (storageNum > 0) {
       return (
-        <CustomInput id={`inpRadio${size}`} key={`inpRadio${size}`} name='inpRadioSize' type='radio' label={size} inline />
+        <CustomInput id={`inpRadio${size}`} key={`inpRadio${size}`} name='inpRadioSize' type='radio' label={size} value={size} inline onChange={this.handleSizeChange} />
       )
     }
   }
@@ -77,13 +116,13 @@ class ProductDetailsView extends React.Component {
 
               <FormGroup>
                 <Label>數量</Label>
-                <Input type='select' name='inpSelectNumber' id='inpSelectNumber'>
+                <Input type='select' name='inpSelectAmount' id='inpSelectAmount' onChange={this.handleAmountChange}>
                   {this.renderIntegerOptions({ min: 1, max: 10 })}
                 </Input>
               </FormGroup>
             </Form>
             <br />
-            <Button color='primary'>加入購物車</Button>
+            <Button color='primary' onClick={this.handleBuyClick}>加入購物車</Button>
           </Col>
           <Col sm='0' md='1' />
         </Row>

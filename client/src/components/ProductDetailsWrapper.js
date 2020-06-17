@@ -55,10 +55,12 @@ class ProductDetailsWrapper extends React.Component {
     } else {
       return (
         <ProductDetailsView
+          id={data.id}
           name={data.name}
           imgSrc={data.imgSrc}
           price={data.price}
           storage={data.storage}
+          addToCartData={this.props.addToCartData}
         />
       )
     }
