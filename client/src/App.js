@@ -12,17 +12,36 @@ import {
   Redirect
 } from 'react-router-dom'
 
-function App () {
+function App (props) {
+  const cartData = [
+    {
+      id: '123',
+      name: 'Tomato Soup - 女',
+      imgSrc: 'linear-gradient(#000, #fff)',
+      price: '$598',
+      orderSize: 'L',
+      orderAmount: 2
+    },
+    {
+      id: '120001',
+      name: 'CAt Product',
+      imgSrc: 'linear-gradient(#00a, #fff)',
+      price: '$599',
+      orderSize: 'M',
+      orderAmount: 2
+    }
+  ]
+
   return (
     <div>
       {/* Router */}
       <Router basename='/'>
-        <MyHeader />
-        {/* <ShoppingCardPanel /> */}
-        <article className='py-5'>
+        <MyHeader cartData={cartData} />
+
+        <article className='m-page-content-wrapper'>
           <Switch>
-            <Route path='/detail/:id' component={ProductDetailsWrapper}>
-              {/* <ProductDetailsWrapper /> */}
+            <Route path='/detail/:id'>
+              <ProductDetailsWrapper />
             </Route>
 
             <Route path='/list/:name' component={ProductListWrapper} />
