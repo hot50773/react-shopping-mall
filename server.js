@@ -2,7 +2,7 @@ require('@google-cloud/debug-agent').start()
 const { ErrorReporting } = require('@google-cloud/error-reporting') // GCP error reporting
 const errors = new ErrorReporting()
 
-const productsData = require('./backend-api/products-data')
+const productsData = require('./backend-data/products')
 
 const express = require('express')
 const path = require('path')
